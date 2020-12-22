@@ -1,16 +1,13 @@
 import React from "react"
+import Footer from "./Footer"
+import Header from "./Header"
 
 function App() {
     return (
         <div>
-            <input type = "checkbox"/>
-            <p> Watch NBA </p>
-            <input type = "checkbox"/>
-            <p> Don't watch WNBA </p>
-            <input type = "checkbox"/>
-            <p> Watch NFL </p>
-            <input type = "checkbox"/>
-            <p> Watch Rams lose </p>
+            <Header/>
+            <MainContent/>
+            <Footer/>
         </div>
     )
 }
