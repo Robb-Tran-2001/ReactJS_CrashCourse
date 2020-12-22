@@ -1,6 +1,6 @@
 import React from "react"
 
-function TodoItem() {
+function TodoItem(props) {
     let styles = {
         display: "flex",
         justifyContent: "flex-start",
@@ -13,8 +13,8 @@ function TodoItem() {
     }
     return (
         <div className = "todo-item" style = {styles}>
-            <input type = "checkbox"/>
-            <p> Watch NBA </p>
+            <input type = "checkbox" checked={props.item.completed}/>
+            <p> {props.item.text}  </p>
         </div>
     )
 }
