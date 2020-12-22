@@ -1,16 +1,13 @@
 import React from "react"
+import TodoItem from "./TodoItem"
 
 function App() {
     return (
-        <div>
-            <input type = "checkbox"/>
-            <p> Watch NBA </p>
-            <input type = "checkbox"/>
-            <p> Don't watch WNBA </p>
-            <input type = "checkbox"/>
-            <p> Watch NFL </p>
-            <input type = "checkbox"/>
-            <p> Watch Rams lose </p>
+        <div className = "todo-list"> {/*className instead of class*/}
+            <TodoItem/>
+            <TodoItem/>
+            <TodoItem/>
+            <TodoItem/>
         </div>
     )
 }
