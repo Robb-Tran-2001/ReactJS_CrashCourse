@@ -1,7 +1,7 @@
 import React from "react"
 
 function TodoItem(props) {
-    let styles = {
+    const styles = {
         display: "flex",
         justifyContent: "flex-start",
         alignItem: "center",
@@ -11,6 +11,11 @@ function TodoItem(props) {
         fontFamily: "Roboto, sans-serif",
         fontWeight: 100
     }
+    const completedStyles = {
+        fontFamily: "italic",
+        color: "cdcdcd",
+        textDecoration: "line-through"
+    }
     return (
         <div className = "todo-item" style = {styles}>
             <input type = "checkbox" 
@@ -18,7 +23,7 @@ function TodoItem(props) {
             onChange={() => props.handleChange(props.item.id)} 
             //call the handleChange method that is passed down to Prop
             />
-            <p> {props.item.text}  </p>
+            <p style={props.item.completed && completedStyles}> {props.item.text}  </p>
         </div>
     )
 }
