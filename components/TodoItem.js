@@ -15,7 +15,8 @@ function TodoItem(props) {
         <div className = "todo-item" style = {styles}>
             <input type = "checkbox" 
             checked={props.item.completed} 
-            onChange={() => props.handleChange(props.item.id)} //
+            onChange={() => props.handleChange(props.item.id)} 
+            //call the handleChange method that is passed down to Prop
             />
             <p> {props.item.text}  </p>
         </div>
