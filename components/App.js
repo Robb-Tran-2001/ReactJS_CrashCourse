@@ -1,23 +1,30 @@
 import React from "react"
 
 //life cycle methods
-class App extends React.Component {
+class App extends React.Component { //class component has states, not functional components
     constructor () {
         super()
-        this.state = { 
-            unreadMessages: {
-                "Call father".
-                "New package"
-            }
-        } 
+        this.state = {
+            isLoggedIn: false
+        }
+        this.handleClick = this.handleClick.bind(this)
     }
-    
-    render() { 
-        //booleanCondition && what to do if true
+
+    handleClick() {
+        this.setState(prevState => { 
+            //function, not parameter as we need prevstate
+            return {isLoggedIn: !prevSstate.isLoggedIn}
+        })
+
+    }
+
+    render() {
         return (
             <div>
-              {this.state.unreadMessages.length > 0 && 
-              <h2>{this.state.unreadMessages.length} unread messages</h3>}
+                <button onClick={this.handleClick} > 
+                    {isLoggedIn ? "Log Out" : "Log In"} 
+                </button>      
+                <h1> {isLoggedIn ? "Logged In" : "Logged Out"} </h1>  
             </div>
         )
     }
