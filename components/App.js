@@ -1,27 +1,21 @@
 import React from "react"
 
-class App extends React.Component
-{
-    constructor() {
-        super()
-        this.state = {
-            name: "RoobyBooby",
-            age: "19",
-            isLoggedIn: true
-        }
-    }
-    render() {
-        let display
-        if(this.state.isLoggedIn) display = "in"
-        else display = "out"
-        return (
-            <div>
-                <h1>{this.state.name}</h1>
-                <h1>{this.state.age} years old</h1>
-                <h1>You are logged {display}</h1>
-            </div>
-        )
-    }
+function handleOver() {
+    console.log("hovering")
+}
+
+function App() {
+    return (
+        <div>
+            <img onMouseOver={handleOver} //call another function
+            src="https://i.pinimg.com/564x/5b/b4/8b/5bb48b07fa6e3840bb3afa2bc821b882.jpg"/>
+            <br/>
+            <br/>
+            <button onClick={() => console.log("I was clicked")} 
+            //anonymous function
+            > </button>
+        </div>
+    )
 }
 
 export default App
