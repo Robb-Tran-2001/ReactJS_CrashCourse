@@ -12,4 +12,18 @@ function Product (props) {
     )
 }
 
+class Product extends React.Component { //props now becomes this.props if funcional components take props
+    render() {
+        return (
+            <div>
+                <h1> {this.props.product.name} </h1>
+                <h3> {this.props.product.price.toLocleString("en-US", {style: "currency", currency: "USD"}
+                    )}
+                </h3>
+                <h3> {this.props.product.description} </h3>
+            </div> 
+        )
+    }
+}
+
 export default Product
