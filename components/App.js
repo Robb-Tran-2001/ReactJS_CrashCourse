@@ -1,39 +1,72 @@
 import React from "react"
 
+//life cycle methods
 class App extends React.Component {
     constructor () {
         super()
         this.state = {
-            count: 0
+            
         } 
-        this.handleClick = this.handleClick.bind(this) 
-        //binds method to the current class' context
     }
     
-    handleClick() {
-        console.log("Incremented")
-        //passes in another function to use previous version of state instead of object literal
-        this.setState((prevState) => { 
-            return (
-                count: prevState.count + 1
-            )
-        }) //changing state method
+    componentDidMount() { 
+        //2. you were just born. runs once when it shows on the screen.
+        //good for API calls. get the data for display
+
     }
-    
-    render() {
+
+    // UNSAFE_componentWillReceiveProps(nextProps) { //deprecated
+    //     //3. you received a gift. runs every time it is mounted and every time 
+    //     //it receives new prop 
+    //     if(nextProps.whatever !== this.props.whatever) {
+    //         //change if different prop
+    //     }
+    // }
+
+    // componentWillMount() {}
+    // componentWillUpdate() {}
+
+    static getDerivedStateFromProps(props, state) {
+        //return new state from the props
+        //for rare cases when components receive props from parents and change its state
+        //accordingly
+    }
+
+    getSnapShotBeforeUpdate() {
+        //creates backup of current things
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        //4. should I change my clothes? Decide if component should change
+        //true if it should update false if not
+    }
+
+    componentWillUnmount() {
+        //5. CLean up, tear code before component disappears
+        //e.g. remove event listeners
+    }
+
+    render() { 
+        //1. lifecycle method, like getting dressed for the day, changes when inner component changes
         return (
             <div>
-                <h1>{this.state.count}</h1>
-                <button onClick = {this.handleClick}> Add! </button>
-                {/*<ChildComponent count = {this.state.count}/>*/}
-                {/*ChildComponent is rerendered every time state is changed as new prop is passed*/}
+               Code goes here
             </div>
         )
     }
 }
 
-//App inits with state.count = 0, binds handleClicl
-//increments one in the function using setState, which takes in a function as a parameter
-//which itself takes the previous state and returns new state
-
+/*
+1. render(): every time there is a change, like putting on new clothes
+2. componentDidMount(): every time a new component is born (e.g. from api calls)
+3. shouldComponentUpdate(nextProps, nextState): should I change clothes?
+4. componentWillReceiveProps(nextProps): recieving a gift, runs everytime new prop is received
+5. componentWillUnMount(): tear down of old code before component disappears 
+6. componentWillUpdate()
+7. componentWIllMount()
+8. static getDerivedStateFromProps(props, state): when child component gets props from
+parent and change its state accordingly
+9. getSnapShotForUpdate(): save current data
+4, 6, 7 are deprecated. 8 is discouraged
+*/
 export default App
