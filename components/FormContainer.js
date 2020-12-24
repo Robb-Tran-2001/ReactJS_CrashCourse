@@ -3,9 +3,10 @@ import FormComponent from ""./FormComponent"
 
 class FormComponent extends React.Component { 
     //business logic
+
     constructor () {
-        super()
-        this.state = {
+        //no need for constructor, just declare variables
+        state = {
             firstName: "",
             lastName: "",
             age: "",
@@ -14,12 +15,12 @@ class FormComponent extends React.Component {
             isVegan: false,
             isKosher: false,
             isHalal: false
-            }
         }
-        this.handleChange=this.handleChange.bind(this)
     }
 
-    handleChange(event) { //always passing in a predetermined parameter when event fires
+    (event) => { //methods maybe written as arrow functions, no binding
+                //lexical "this" reference from surrounding environment, 
+                //no need for binding
         const {name, value, type, checked} = event.target
         type === "checkbox" ? 
             this.setState([name]: checked}) : 
